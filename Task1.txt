@@ -1,0 +1,111 @@
+Task 1
+
+1. Query:
+?- house = house.
+
+Result:
+true.
+
+Explanation:
+Both terms are the same atom, so they unify.
+
+
+2. Query:
+?- house = abc.
+
+Result:
+false.
+
+Explanation:
+The terms are different atoms, so they cannot unify.
+
+
+3. Query:
+?- edge(a,b) = edge(C,b).
+
+Result:
+C = a.
+
+Explanation:
+Both structures have the same name and number of arguments.
+C unifies with a, and b unifies with b.
+
+
+4. Query:
+?- edge(a,d) = edge(C,B).
+
+Result:
+C = a,
+B = d.
+
+Explanation:
+Both structures have the same name and number of arguments.
+C unifies with a, and B unifies with d.
+
+
+5. Query:
+?- edge(C,B) = edge(a,d).
+
+Result:
+C = a,
+B = d.
+
+Explanation:
+C unifies with a, and B unifies with d.
+The order of the two terms does not change the result.
+
+
+6. Query:
+?- edge(A,f(g,h)) = edge(a,B).
+
+Result:
+A = a,
+B = f(g,h).
+
+Explanation:
+Both structures have the same name and number of arguments.
+A unifies with a, and B unifies with the whole structure f(g,h).
+
+
+7. Query:
+?- edge(A,A) = edge(b,c).
+
+Result:
+false.
+
+Explanation:
+The same variable A must have the same value in both positions.
+It cannot unify with both b and c because they are different atoms.
+
+
+8. Query:
+?- edge(A,A) = edge(b,b).
+
+Result:
+A = b.
+
+Explanation:
+Both positions require the same value b, so A can unify with b.
+
+
+9. Query:
+?- A = B, B = f.
+
+Result:
+A = f,
+B = f.
+
+Explanation:
+A and B become linked.
+When B is instantiated to f, A also becomes f.
+
+
+10. Query:
+?- A = B, B = f, A = e.
+
+Result:
+false.
+
+Explanation:
+A and B become linked and both take the value f.
+A cannot then unify with e because f and e are different atoms.
